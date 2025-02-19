@@ -1,0 +1,28 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.text-color-responsive {
+  color: black !important; /* Default color */
+}
+@media screen and (min-width: 768px) {
+  .text-color-responsive {
+    color: white !important; /* Color for tablet and above */
+  }
+}
+
+/* Modal ubtton for shortcut adding */
+.mfb {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #3273dc;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 99;
+}

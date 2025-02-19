@@ -1,0 +1,22 @@
+{{define "message"}} {{if .ErrorMessage}}
+<article class="message is-danger mt-3 mb-3">
+  <div class="message-header">
+    <p>Erreur</p>
+  </div>
+  <div class="message-body">{{.ErrorMessage}}</div>
+</article>
+{{end}} {{if .SuccessMessage}}
+<article class="message is-success mt-3 mb-3">
+  <div class="message-header">
+    <p>Succès !</p>
+  </div>
+  <div class="message-body">{{.SuccessMessage}}</div>
+</article>
+{{end}} {{if .InfoMessage}}
+<article class="message is-info mt-3 mb-3">
+  <div class="message-header">
+    <p>Information</p>
+  </div>
+  <div class="message-body">{{.InfoMessage}}</div>
+</article>
+{{end}} {{end}}

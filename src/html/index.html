@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <!-- jQuery 3 -->
+    <script src="/assets/js/jQuery3.min.js"></script>
+
+    <!-- Bulma collapsible -->
+    <script src=" https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/js/bulma-collapsible.min.js "></script>
+    <link
+      href=" https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/css/bulma-collapsible.min.css "
+      rel="stylesheet"
+    />
+
+    <!-- jQuery UI 1.14 -->
+    <script src="/assets/js/jQueryUI.min.js"></script>
+
+    <!-- Bulma 1.0.2 -->
+    <link rel="stylesheet" href="/assets/css/bulma.min.css" />
+    <title>Onboarding</title>
+  </head>
+  <body>
+    <!--  -->
+    <div class="has-text-centered mt-5">
+      <h1 id="welcome-message" style="color: white" class="title is-1">
+        Bienvenue sur
+      </h1>
+    </div>
+    <div class="has-text-centered">
+      <img src="/assets/images/jellyfin-logo.png" alt="" style="width: 200px" />
+    </div>
+    <!--  -->
+    <div class="container columns is-max-desktop is-multiline">
+      <!--  -->
+      <div id="all-tasks" class="mt-5" style="width: 100%">
+        {{template "message" .}}
+        <div class="column">
+          <article class="message is-light">
+            <div class="message-header">
+              <a href="#section-create" data-action="collapse"
+                >Je souhaite me créer un compte</a
+              >
+            </div>
+            <div
+              id="section-create"
+              class="message-body is-collapsible"
+              data-parent="all-tasks"
+            >
+              <div class="message-body-content">
+                <!-- Create account part -->
+                <p class="mb-2">
+                  Votre compte vous permettra d'accéder à Jellyfin et également
+                  de faire des requêtes
+                </p>
+                <form action="/" method="post">
+                  <div class="field">
+                    <label class="label">Nom d'utilisateur</label>
+                    <div class="control">
+                      <input
+                        class="input"
+                        type="text"
+                        name="Name"
+                        minlength="3"
+                        maxlength="25"
+                        id="username-create"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">Mot de passe</label>
+                    <div class="control">
+                      <input
+                        class="input"
+                        type="password"
+                        placeholder=""
+                        name="Password"
+                        minlength="6"
+                        id="password-create"
+                      />
+                    </div>
+                  </div>
+
+                  <button class="button is-link">Créer un compte</button>
+                </form>
+                <p class="mt-3">
+                  Une fois votre compte créé, cliquez
+                  <a href="https://stream.row-it.net/">ici</a> pour accéder à
+                  Jellyfin !
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <!-- <div class="column">
+          <article class="message is-light">
+            <div class="message-header">
+              <a
+                href="#section-password"
+                data-action="collapse"
+                >J'ai oublié mon mot de passe !</a
+              >
+            </div>
+            <div
+              id="section-password"
+              class="message-body is-collapsible"
+              data-parent="all-tasks"
+            >
+              <div class="message-body-content"></div>
+            </div>
+          </article>
+        </div> -->
+        <div class="column">
+          <article class="message is-light">
+            <div class="message-header">
+              <a href="#section-request" data-action="collapse"
+                >Je veux demander un film / une série / un anime</a
+              >
+            </div>
+            <div
+              id="section-request"
+              class="message-body is-collapsible"
+              data-parent="all-tasks"
+            >
+              <div class="message-body-content">
+                <p>
+                  Si un contenu n'est pas disponible sur Jellyfin, vous pouvez
+                  vous rendre sur
+                  <br />
+                  <a href="https://req.row-it.net/" style="font-weight: bold"
+                    ><img
+                      src="/assets/images/jellyseer-logo.png"
+                      alt="Logo Jellyseer"
+                      style="width: 30px"
+                    />
+                    Jellyseer</a
+                  >
+                  <br />
+                  et vous connecter avec votre compte Jellyfin, puis demander un
+                  contenu en cliquant sur
+                  <img
+                    src="/assets/images/ask.png"
+                    alt="Bouton demander"
+                    style="width: 100px"
+                  />
+                </p>
+                <div class="content mt-5">
+                  <ul>
+                    <li>
+                      Il vous est possible de ne demander que certaines saisons
+                      d'une série
+                    </li>
+                    <li>
+                      Si un contenu est déjà disponible, il sera noté comme
+                      <img
+                        src="/assets/images/available.png"
+                        alt="Disponible"
+                        style="width: 50px"
+                      />
+                      et vous pourrez y accéder en cliquant sur
+                      <img
+                        src="/assets/images/play.png"
+                        alt="Bouton Lire sur Jellyfin"
+                        style="width: 90px"
+                      />
+                    </li>
+                    <li>
+                      Les sorties les plus populaires mettent
+                      <strong>entre 5 et 15 minutes</strong> à arriver sur le
+                      site. À l'inverse, les contenus plus vieux ou moins connus
+                      peuvent mettre <strong>entre 2 et 4 heures.</strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="column">
+          <article class="message is-light">
+            <div class="message-header">
+              <a href="#section-app-phone" data-action="collapse"
+                >Je souhaite installer l'application sur mon téléphone</a
+              >
+            </div>
+            <div
+              id="section-app-phone"
+              class="message-body is-collapsible"
+              data-parent="all-tasks"
+            >
+              <div class="message-body-content">
+                <div class="content">
+                  <ul>
+                    <img
+                      src="/assets/images/android.png"
+                      style="width: 20px"
+                      alt="Android"
+                    />
+                    <strong>Android</strong>
+                    <ul>
+                      <li>
+                        <a
+                          href="https://play.google.com/store/apps/details?id=org.jellyfin.mobile"
+                        >
+                          <img
+                            src="/assets/images/jellyfin.svg"
+                            style="width: 20px"
+                            alt=""
+                          /><strong> Jellyfin</strong>
+                        </a>
+                        : L'application Jellyfin officielle
+                      </li>
+                      <li>
+                        <a
+                          href="https://play.google.com/store/apps/details?id=com.fredrikburmester.streamyfin"
+                        >
+                          <img
+                            src="/assets/images/streamyfin.png"
+                            style="width: 20px"
+                            alt=""
+                          /><strong> Streamyfin</strong>
+                        </a>
+                        : Une application Jellyfin optimisée permettant
+                        également de faire des requêtes en direct
+                      </li>
+                      <li>
+                        <a
+                          href="https://play.google.com/store/apps/details?id=dev.jdtech.jellyfin"
+                        >
+                          <img
+                            src="/assets/images/findroid.png"
+                            style="width: 20px"
+                            alt=""
+                          /><strong> Findroid</strong>
+                        </a>
+                        : Une application Jellyfin simple et moderne basée sur
+                        les couleurs de votre téléphone
+                      </li>
+                    </ul>
+                    <img
+                      src="/assets/images/apple.svg"
+                      style="width: 20px"
+                      alt="iOS"
+                    />
+                    <strong>iOS</strong>
+                    <ul>
+                      <li>
+                        <a
+                          href="https://play.google.com/store/apps/details?id=org.jellyfin.mobile"
+                        >
+                          <img
+                            src="/assets/images/jellyfin.svg"
+                            style="width: 20px"
+                            alt=""
+                          /><strong> Jellyfin</strong>
+                        </a>
+                        : L'application Jellyfin officielle
+                      </li>
+                      <li>
+                        <a
+                          href="https://apps.apple.com/us/app/streamyfin/id6593660679?l=en-GB"
+                        >
+                          <img
+                            src="/assets/images/streamyfin.png"
+                            style="width: 20px"
+                            alt=""
+                          /><strong> Streamyfin</strong>
+                        </a>
+                        : Une application Jellyfin optimisée permettant
+                        également de faire des requêtes en direct
+                      </li>
+                      <li>
+                        <a
+                          href="https://apps.apple.com/fr/app/swiftfin/id1604098728"
+                        >
+                          <img
+                            src="/assets/images/swiftfin.png"
+                            alt=""
+                            style="width: 20px"
+                          /><strong> Swiftfin</strong>
+                        </a>
+                        : Une version de Jellyfin plus performante et adaptée à
+                        l'interface iPhone
+                      </li>
+                    </ul>
+                  </ul>
+                </div>
+                <!--  -->
+                <p>
+                  Une fois l'application installée sur votre téléphone, vous
+                  devrez <strong>renseigner l'adresse d'un serveur.</strong>
+                </p>
+                <br />
+                <p>
+                  À ce moment-là, entrez comme adresse
+                  <strong>stream.row-it.net</strong>, comme montré ci-dessous :
+                </p>
+                <br />
+                <img src="/assets/images/connect-phone.png" alt="" />
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="column">
+          <article class="message is-light">
+            <div class="message-header">
+              <a href="#section-app-tv" data-action="collapse"
+                >Je souhaite installer l'application sur ma télévision</a
+              >
+            </div>
+            <div
+              id="section-app-tv"
+              class="message-body is-collapsible"
+              data-parent="all-tasks"
+            >
+              <div class="message-body-content">
+                <div class="content">
+                  <p>
+                    L'application officielle Jellyfin est disponible sur les box
+                    opérateurs suivantes :
+                  </p>
+                  <ul>
+                    <li class="mb-5">
+                      <a
+                        href="https://play.google.com/store/apps/details?id=org.jellyfin.androidtv&hl=fr"
+                      >
+                        <img
+                          src="/assets/images/bbox.png"
+                          style="width: 85px"
+                          alt="Bbox"
+                        />
+                        <strong> Bbox via Play Store</strong>
+                      </a>
+                    </li>
+                    <li class="mb-5">
+                      <a
+                        href="https://play.google.com/store/apps/details?id=org.jellyfin.androidtv&hl=fr"
+                      >
+                        <img
+                          src="/assets/images/sfr.png"
+                          style="width: 35px"
+                          alt="Bbox"
+                          class="mr-2"
+                        />
+                        <img
+                          src="/assets/images/red.png"
+                          style="width: 50px"
+                          alt="Bbox"
+                        />
+                        À partir de la <strong>SFR Box 8</strong> avec Connect
+                        TV Android
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="mb-5 mt-5"></div>
+                  <p>
+                    L'application officielle Jellyfin est disponible sur les
+                    Smart TV et systèmes suivants :
+                  </p>
+                  <ul>
+                    <li class="mb-5">
+                      <a
+                        href="https://www.amazon.fr/Jellyfin-for-Fire-TV/dp/B07TX7Z725"
+                      >
+                        <img
+                          src="/assets/images/firetv.png"
+                          style="width: 60px"
+                          alt="FireTV"
+                          class="mr-2"
+                        />
+                        <img
+                          src="/assets/images/xiaomi.png"
+                          style="width: 60px"
+                          alt="FireTV"
+                          class="mr-2"
+                        />
+                        <img
+                          src="/assets/images/tcl.webp"
+                          style="width: 75px"
+                          alt="FireTV"
+                          class="mr-2"
+                        />
+                        Télévisions sous
+                        <strong>Amazon FireTV et FireTV Stick</strong>
+                      </a>
+                    </li>
+                    <li class="mb-5">
+                      <a
+                        href="https://us.lgappstv.com/main/tvapp/detail?appId=1030579"
+                      >
+                        <img
+                          src="/assets/images/webos.svg"
+                          style="width: 110px"
+                          alt="LG WebOS"
+                        />
+                        <strong> Télévisions LG après 2010</strong>
+                      </a>
+                    </li>
+                    <li class="mb-5">
+                      <a
+                        href="https://play.google.com/store/apps/details?id=org.jellyfin.androidtv&hl=fr"
+                      >
+                        <img
+                          src="/assets/images/sony.svg"
+                          style="width: 110px"
+                          alt="Sony"
+                        />
+                        <strong> Télévisions Sony Bravia sous Google TV</strong>
+                      </a>
+                    </li>
+                    <li class="mb-5">
+                      <a
+                        href="https://forum.jellyfin.org/t-setting-up-jellyfin-on-a-hisense-vidaa-os-tv"
+                      >
+                        <img
+                          src="/assets/images/hisense.svg"
+                          style="width: 110px"
+                          alt="Hisense"
+                        />
+                        <strong> Télévisions Hisense</strong> (installation
+                        manuelle)
+                      </a>
+                    </li>
+                    <li class="mb-5">
+                      <a
+                        href="https://www.dealabs.com/discussions/jellyfin-et-tele-samsung-2706698"
+                      >
+                        <img
+                          src="/assets/images/tizen.png"
+                          style="width: 100px"
+                          alt="Samsung Tizen"
+                        />
+                        <strong> Télévisions Samsung sous Tizen</strong>
+                        (installation manuelle)
+                      </a>
+                    </li>
+                    <li class="mb-5">
+                      <a
+                        href="https://github.com/jellyfin/jellycon?tab=readme-ov-file#installation"
+                      >
+                        <img
+                          src="/assets/images/kodi.png"
+                          style="width: 40px"
+                          alt="Kodi"
+                        />
+                        <strong> Add-on JellyCon pour Kodi</strong>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://channelstore.roku.com/fr-fr/details/cc5e559d08d9ec87c5f30dcebdeebc12/jellyfin"
+                      >
+                        <img
+                          src="/assets/images/roku.png"
+                          style="width: 50px"
+                          alt="Roku"
+                        />
+                        <strong> Add-on Jellyfin pour Kodi</strong>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <!--  -->
+                <p>
+                  Pour les opérateurs
+                  <img
+                    src="/assets/images/orange.png"
+                    alt="Orange"
+                    style="width: 30px"
+                  />
+                  et
+                  <img
+                    src="/assets/images/free.png"
+                    alt="Orange"
+                    style="width: 50px"
+                  />
+                  ou les autres systèmes ne disposant pas d'application dédiée :
+                </p>
+                <p class="mb-5">
+                  Passez par
+                  <strong>l'application mobile Jellyfin officielle</strong>,
+                  puis <strong>castez</strong> à partir de celle-ci avec l'icône
+                  de cast
+                  <img
+                    src="/assets/images/cast.webp"
+                    alt="Orange"
+                    style="width: 20px"
+                  />
+                </p>
+                <p>
+                  Une fois l'application installée sur votre TV ou box, vous
+                  devrez <strong>renseigner l'adresse d'un serveur.</strong>
+                </p>
+                <br />
+                <p>
+                  À ce moment-là, entrez comme adresse
+                  <strong>stream.row-it.net</strong>, comme montré ci-dessous :
+                </p>
+                <br />
+                <img src="/assets/images/connect-tv.png" alt="" class="mb-5" />
+                <p>
+                  Une fois l'adresse du serveur ajoutée, connectez-vous avec
+                  votre compte Jellyfin
+                </p>
+                <img src="/assets/images/tv-login.png" alt="" class="mt-3" />
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <!--  -->
+    </div>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #101322;
+  }
+  a:link {
+    text-decoration: none !important;
+  }
+</style>
+
+<script>
+  $(document).ready(function () {
+    bulmaCollapsible.attach();
+
+    $("#welcome-message").fadeIn();
+    $("#all-tasks").fadeIn();
+  });
+</script>
